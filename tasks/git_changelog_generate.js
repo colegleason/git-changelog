@@ -75,10 +75,10 @@ var parseRawCommit = function(raw) {
 
 
     msg.body = lines.join('\n');
-    match = msg.subject.match(/^(.*)\((.*)\)\:\s(.*)$/);
+    match = msg.subject.match(/^(.*)\((.*)\)\:?\s(.*)$/);
 
     if(!match){
-        match = msg.subject.match(/^(.*)\:\s(.*)$/);
+        match = msg.subject.match(/^(.*)\:?\s(.*)$/);
         if(!match){
             warn('Incorrect message: %s %s', msg.hash, msg.subject);
             return null;
