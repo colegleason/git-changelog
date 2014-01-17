@@ -118,7 +118,9 @@ var currentDate = function() {
 
 var printSection = function(stream, title, section, printCommitLinks) {
     printCommitLinks = printCommitLinks === undefined ? true : printCommitLinks;
-    var components = Object.getOwnPropertyNames(section).sort();
+    var components = Object.getOwnPropertyNames(section).sort().filter(function(name) {
+        return name != EMPTY_COMPONENT;
+    });
 
     if (!components.length) {return; }
 
