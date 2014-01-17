@@ -139,7 +139,7 @@ var printSection = function(stream, title, section, printCommitLinks) {
 
         section[name].forEach(function(commit) {
             if (printCommitLinks) {
-                stream.write(util.format('%s %s\n  (%s)', prefix, commit.subject, linkToCommit(commit.hash)));
+                stream.write(util.format('%s %s\n  (%s', prefix, commit.subject, linkToCommit(commit.hash)));
                 if (commit.closes.length) {
                     stream.write(',\n   ' + commit.closes.map(linkToIssue).join(', '));
                 }
